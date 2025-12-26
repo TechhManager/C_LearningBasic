@@ -1,19 +1,21 @@
 #include <iostream>
 
+bool isAllowedToTakeFunRide()
+{
+  std::cout << "How tall are you? (cm)\n";
 
-int doubleNumber(int x){
-    
-    return x*2;
+  double height{};
+  std::cin >> height;
+
+  return height >= 140.0;
 }
 
-int main(){
+int main()
+{
+  if (isAllowedToTakeFunRide())
+    std::cout << "Have fun!\n";
+  else
+    std::cout << "Sorry, you're too short.\n";
 
-    int x{};
-
-    std::
-    cin >> x;
-
-    std::cout << doubleNumber(x) << '\n';
-
-    return 0;
+  return 0;
 }
