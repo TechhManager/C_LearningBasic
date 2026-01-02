@@ -1,21 +1,36 @@
 #include <iostream>
+#include <string_view>
 
-bool isAllowedToTakeFunRide()
+std::string_view getQuantityPhrase(int num)
 {
-  std::cout << "How tall are you? (cm)\n";
+    if (num < 0)
+        return "negative";
+    if (num == 0)
+        return "no";
+    if (num == 1)
+        return "a single";
+    if (num == 2)
+        return "a couple of";
+    if (num == 3)
+        return "a few";
+    return "many";
+}
 
-  double height{};
-  std::cin >> height;
-
-  return height >= 140.0;
+std::string_view getApplesPluralized(int num)
+{
+    return (num == 1) ? "apple" : "apples";
 }
 
 int main()
 {
-  if (isAllowedToTakeFunRide())
-    std::cout << "Have fun!\n";
-  else
-    std::cout << "Sorry, you're too short.\n";
+    constexpr int maryApples { 3 };
+    std::cout << "Mary has " << getQuantityPhrase(maryApples) << ' ' << getApplesPluralized(maryApples) << ".\n";
 
-  return 0;
+    std::cout << "How many apples do you have? ";
+    int numApples{};
+    std::cin >> numApples;
+
+    std::cout << "You have " << getQuantityPhrase(numApples) << ' ' << getApplesPluralized(numApples) << ".\n";
+
+    return 0;
 }
